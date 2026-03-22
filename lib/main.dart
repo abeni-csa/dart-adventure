@@ -20,18 +20,57 @@ class MyApp extends StatelessWidget {
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))],
           centerTitle: true,
         ),
-        backgroundColor: Colors.blue,
-        body: Center(
-          child: Container(
-            width: 150,
-            height: 150,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.lightBlueAccent,
-              borderRadius: BorderRadius.circular(12),
+        body: ListView(
+          children: [
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.green),
             ),
-            child: Icon(Icons.favorite, color: Colors.red, size: 54),
-          ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.yellow),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.red),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.green),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.yellow),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.red),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.green),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.yellow),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.red),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.green),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.yellow),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.red),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.green),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.yellow),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.red),
+            ),
+            Expanded(
+              child: Container(height: 150, width: 150, color: Colors.black),
+            ),
+          ],
         ),
       ),
     );
