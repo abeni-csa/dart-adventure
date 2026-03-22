@@ -12,23 +12,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.amber,
+        appBar: AppBar(
+          title: Text("Temar Lije"),
+          backgroundColor: Colors.amber,
+        ),
+        backgroundColor: Colors.blue,
         body: Center(
           child: Container(
-            width: 500,
-            padding: EdgeInsets.all(200),
+            width: 150,
+            height: 150,
+            padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.lightBlueAccent,
               borderRadius: BorderRadius.circular(12),
             ),
-            height: 500,
-            child: Text(
-              "ABENEZER THE DEV",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: Icon(Icons.favorite, color: Colors.red, size: 54),
           ),
         ),
       ),
