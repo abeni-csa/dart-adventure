@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Temar Lije"),
           backgroundColor: Colors.amber,
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))],
+          centerTitle: true,
         ),
         backgroundColor: Colors.blue,
         body: Center(
