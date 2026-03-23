@@ -12,13 +12,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GridView.builder(
-          itemCount: 64,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
+        body: Center(
+          child: GestureDetector(
+            onDoubleTap: () => print("Double Tabed"),
+            onTap: () => print("Tabed"),
+            child: Container(
+              width: 300,
+              height: 300,
+              color: Colors.blueAccent,
+              child: Center(child: Text("My Name")),
+            ),
           ),
-          itemBuilder: (contex, index) =>
-              Container(color: Colors.redAccent, margin: EdgeInsets.all(12)),
         ),
       ),
     );
