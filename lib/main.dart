@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
         body: ListView(
+          padding: EdgeInsets.all(12),
+          scrollDirection: Axis.vertical,
+
           children: [
             Expanded(
               child: Container(height: 150, width: 150, color: Colors.green),
