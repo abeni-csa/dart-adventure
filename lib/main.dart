@@ -1,3 +1,4 @@
+import 'package:fist_flutter/pages/1stpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,22 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: GestureDetector(
-            onDoubleTap: () => print("Double Tabed"),
-            onTap: () => print("Tabed"),
-            child: Container(
-              width: 300,
-              height: 300,
-              color: Colors.blueAccent,
-              child: Center(child: Text("My Name")),
-            ),
-          ),
-        ),
-      ),
-    );
+    return MaterialApp(home: FirstPage(), debugShowCheckedModeBanner: false);
   }
 }
