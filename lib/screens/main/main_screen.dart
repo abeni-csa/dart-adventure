@@ -1,4 +1,4 @@
-import 'package:fist_flutter/screens/dashboard/dashboard%20_screen.dart';
+import 'package:fist_flutter/screens/dashboard/dashboard_screen.dart';
 
 import 'components/side_menu.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +10,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             // defualt flex = 1 == 1/6 of the screen

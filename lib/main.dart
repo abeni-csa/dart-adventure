@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme.apply(bodyColor: Colors.white),
         ),
-        canvasColor: secondryColor,
+        canvasColor: secondaryColor,
       ),
       home: MainScreen(),
     );

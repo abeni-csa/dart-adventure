@@ -10,7 +10,7 @@ class SearchField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: "Search",
-        fillColor: secondryColor,
+        fillColor: secondaryColor,
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
