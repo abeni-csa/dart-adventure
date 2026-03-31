@@ -1,4 +1,6 @@
+import 'package:fist_flutter/ui/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -7,30 +9,36 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  var cur_year = DateTime.now().year;
+  var index = 1;
+  final List<Widget> screens = <Widget>[];
+
+  @override
+  void initState() {
+    super.initState();
+    screens.add(const HomeScreen());
+    screens.add(const Placeholder());
+    screens.add(const Placeholder());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          color: const Color(0xFF111111),
-
-          child: Column(
-            children: [
-              const Align(
-                alignment: AlignmentGeometry.center,
-                child: Text(
-                  "Now Playing",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+    return Scaffold(
+      body: screens[index],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Symbols.genres), label: 'Genre'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
           ),
-        ),
+        ],
+        currentIndex: index,
+        onTap: (navIndex) => {
+          setState(() {
+            index = navIndex;
+          }),
+        },
       ),
     );
   }
