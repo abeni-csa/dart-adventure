@@ -37,9 +37,10 @@ class HomeScreenImage extends StatelessWidget {
 
     return SizedBox(
       height: 374,
+
       child: CardSwiper(
         // In v7.x, use cardsCount instead of itemCount
-        cardsCount: images.length,
+        cardsCount: images.length - 1,
 
         // The builder now provides the index and a 'horizontal/vertical' offset
         cardBuilder:

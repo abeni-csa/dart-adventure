@@ -11,6 +11,8 @@ class HorizontalMovies extends StatelessWidget {
     return SizedBox(
       height: 142,
       child: ListView.builder(
+        padding: EdgeInsets.all(10),
+        scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {},

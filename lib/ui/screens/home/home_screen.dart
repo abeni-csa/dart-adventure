@@ -1,6 +1,7 @@
 import 'package:fist_flutter/ui/screens/home/home_screen_image.dart';
 import 'package:fist_flutter/ui/screens/home/horiz_movies.dart';
 import 'package:fist_flutter/ui/screens/home/title_row.dart';
+import 'package:fist_flutter/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,20 +15,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 24),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text('Now Playing'),
+        child: Container(
+          color: screenBackground,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 24),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text('Now Playing', style: largeTitle),
+                ),
               ),
-            ),
-            HomeScreenImage(),
-            TitleRow(text: 'Trending', onMoreClicked: () {}),
-            HorizontalMovies(movies: images),
-            TitleRow(text: 'Popular', onMoreClicked: () {}),
-          ],
+              HomeScreenImage(),
+              TitleRow(text: 'Trending', onMoreClicked: () {}),
+              HorizontalMovies(movies: images),
+              TitleRow(text: 'Popular', onMoreClicked: () {}),
+              HorizontalMovies(movies: images),
+              TitleRow(text: 'Top Rated', onMoreClicked: () {}),
+              HorizontalMovies(movies: images),
+            ],
+          ),
         ),
       ),
     );
