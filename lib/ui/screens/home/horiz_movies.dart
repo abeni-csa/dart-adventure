@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 class HorizontalMovies extends StatelessWidget {
   final List<String> movies;
 
-  const HorizontalMovies({Key? key, required this.movies}) : super(key: key);
+  const HorizontalMovies({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
