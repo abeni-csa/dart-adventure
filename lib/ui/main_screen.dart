@@ -1,3 +1,4 @@
+import 'package:fist_flutter/ui/screens/genres/genre_screen.dart';
 import 'package:fist_flutter/ui/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
@@ -16,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     screens.add(const HomeScreen());
-    screens.add(const Placeholder());
+    screens.add(const GenreScreen());
     screens.add(const Placeholder());
   }
 
