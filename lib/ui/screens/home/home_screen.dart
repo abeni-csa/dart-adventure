@@ -1,18 +1,21 @@
+import 'package:fist_flutter/providers.dart';
 import 'package:fist_flutter/ui/screens/home/home_screen_image.dart';
 import 'package:fist_flutter/ui/screens/home/horiz_movies.dart';
 import 'package:fist_flutter/ui/screens/home/title_row.dart';
 import 'package:fist_flutter/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final images = ref.read(movieImagesProvider);
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
