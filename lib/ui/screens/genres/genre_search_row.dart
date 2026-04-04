@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:fist_flutter/ui/theme/theme.dart';
 
 typedef OnSearch = void Function(String searchString);
 
 class GenreSearchRow extends ConsumerStatefulWidget {
   final OnSearch onSearch;
+
   const GenreSearchRow(this.onSearch, {super.key});
+
   @override
   ConsumerState<GenreSearchRow> createState() => _GenreSearchRowState();
 }
@@ -14,6 +17,7 @@ class GenreSearchRow extends ConsumerStatefulWidget {
 class _GenreSearchRowState extends ConsumerState<GenreSearchRow> {
   late TextEditingController movieTextController;
   final FocusNode textFocusNode = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -40,14 +44,11 @@ class _GenreSearchRowState extends ConsumerState<GenreSearchRow> {
               keyboardType: TextInputType.text,
               enableSuggestions: false,
               autofocus: false,
-              // 1
               onSubmitted: (value) {
                 widget.onSearch(value);
               },
-              // 2
               controller: movieTextController,
               autocorrect: false,
-              // 3
               decoration: InputDecoration(
                 filled: true,
                 focusColor: searchBarBackground,
@@ -60,7 +61,6 @@ class _GenreSearchRowState extends ConsumerState<GenreSearchRow> {
                 ),
                 hintText: 'movie name, genre',
                 hintStyle: body1Regular.copyWith(color: posterBorder),
-                // 4
                 suffixIcon: IconButton(
                   onPressed: () {
                     movieTextController.clear();
@@ -70,7 +70,6 @@ class _GenreSearchRowState extends ConsumerState<GenreSearchRow> {
                     color: Colors.white,
                   ), // Close icon
                 ),
-                // 5
                 prefixIcon: IconButton(
                   icon: const Icon(Icons.search, color: Colors.white),
                   onPressed: () {

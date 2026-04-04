@@ -1,11 +1,16 @@
-import 'package:fist_flutter/ui/screens/genres/genre_search_row.dart';
-import 'package:fist_flutter/ui/screens/genres/genre_section.dart';
-import 'package:fist_flutter/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:fist_flutter/providers.dart';
+import 'package:fist_flutter/ui/theme/theme.dart';
+import 'package:fist_flutter/ui/widgets/vert_movie_list.dart';
+import 'package:fist_flutter/ui/screens/genres/genre_search_row.dart';
+import 'package:fist_flutter/ui/screens/genres/genre_section.dart';
+import 'package:fist_flutter/ui/screens/genres/sort_picker.dart';
+
 class GenreScreen extends ConsumerStatefulWidget {
   const GenreScreen({super.key});
+
   @override
   ConsumerState<GenreScreen> createState() => _GenreScreenState();
 }
@@ -13,6 +18,7 @@ class GenreScreen extends ConsumerStatefulWidget {
 class _GenreScreenState extends ConsumerState<GenreScreen> {
   List<GenreState> genres = [];
   final expandedNotifier = ValueNotifier<bool>(false);
+
   @override
   void initState() {
     super.initState();
@@ -21,19 +27,20 @@ class _GenreScreenState extends ConsumerState<GenreScreen> {
       GenreState(genre: 'Adventure', isSelected: false),
       GenreState(genre: 'Crime', isSelected: false),
       GenreState(genre: 'Mystery', isSelected: false),
-      GenreState(genre: 'Amharic', isSelected: false),
-      GenreState(genre: 'Si-Fic', isSelected: false),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
+    // Watch the provider to get the list of movie images
+    final movies = ref.watch(movieImagesProvider);
+
     return SafeArea(
       child: Container(
         color: screenBackground,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
@@ -42,7 +49,7 @@ class _GenreScreenState extends ConsumerState<GenreScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 16.0, 0.0, 24.0),
                   child: Text(
-                    'Find  a Movie',
+                    'Find a Movie',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -63,6 +70,14 @@ class _GenreScreenState extends ConsumerState<GenreScreen> {
               },
             ),
             const Divider(),
+            SortPicker(onSortSelected: (sorting) {}),
+            // Wrap in Expanded to allow the list to take remaining space and scroll
+            Expanded(
+              child: VerticalMovieList(
+                movies: movies, // Pass the retrieved movie list
+                onMovieTap: (movieId) {},
+              ),
+            ),
           ],
         ),
       ),
